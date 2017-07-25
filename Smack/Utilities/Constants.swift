@@ -11,4 +11,6 @@ import Foundation
 //Segues
 struct SegueID {
     static let toLogin = "toLogin"
+    static let toCreateAccount = "toCreateAccount"
+    static let unwindToChannel = "unwindToChannel"
 }
