@@ -15,6 +15,7 @@ struct SegueID {
     static let toLogin = "toLogin"
     static let toCreateAccount = "toCreateAccount"
     static let unwindToChannel = "unwindToChannel"
+    static let toAvatarPicker = "toAvatarPicker"
 }
 
 struct Constants {
@@ -37,6 +38,15 @@ struct Constants {
     //Header
     struct Header {
         static let JSONheader = ["Content-Type" : "application/json; charset=utf-8"]
-
+    }
+    
+    //Color
+    struct Color {
+        static let smackPurplePlaceHolder = #colorLiteral(red: 0.2392156863, green: 0.3319521546, blue: 0.7513278127, alpha: 0.5)
+    }
+    
+    //Notification
+    struct Notif {
+        static let userDataDidChange = Notification.Name("notifUserDataDidChange")
     }
 }
