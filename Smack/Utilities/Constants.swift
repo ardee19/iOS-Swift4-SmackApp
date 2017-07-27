@@ -31,6 +31,7 @@ struct Constants {
         static let base = "https://chat-smack.herokuapp.com/v1/"
         static let register = "\(base)account/register"
         static let login = "\(base)account/login"
+        static let addUser = "\(base)user/add"
     }
     
     //Header
