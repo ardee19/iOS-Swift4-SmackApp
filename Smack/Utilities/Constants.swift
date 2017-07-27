@@ -30,5 +30,12 @@ struct Constants {
     struct URL {
         static let base = "https://chat-smack.herokuapp.com/v1/"
         static let register = "\(base)account/register"
+        static let login = "\(base)account/login"
+    }
+    
+    //Header
+    struct Header {
+        static let JSONheader = ["Content-Type" : "application/json; charset=utf-8"]
+
     }
 }
