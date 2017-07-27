@@ -8,9 +8,27 @@
 
 import Foundation
 
+typealias CompletionHandler = (_ Success: Bool) -> ()
+
 //Segues
 struct SegueID {
     static let toLogin = "toLogin"
     static let toCreateAccount = "toCreateAccount"
     static let unwindToChannel = "unwindToChannel"
+}
+
+struct Constants {
+    
+    //User Defaults
+    struct DefaultKey {
+        static let token = "token"
+        static let loggedIn = "loggedIn"
+        static let userEmail = "userEmail"
+    }
+    
+    //URL Constants
+    struct URL {
+        static let base = "https://chat-smack.herokuapp.com/v1/"
+        static let register = "\(base)account/register"
+    }
 }
