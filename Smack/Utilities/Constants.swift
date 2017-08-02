@@ -33,11 +33,16 @@ struct Constants {
         static let register = "\(base)account/register"
         static let login = "\(base)account/login"
         static let addUser = "\(base)user/add"
+        static let findUserByEmail = "\(base)user/byEmail/"
     }
     
     //Header
     struct Header {
         static let JSONheader = ["Content-Type" : "application/json; charset=utf-8"]
+        static let bearerHeader = [
+            "Authorization" : "Bearer \(AuthService.instance.authToken)",
+            "Content-Type" : "application/json; charset=utf-8"
+        ]
     }
     
     //Color

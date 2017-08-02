@@ -22,15 +22,11 @@ class ChannelVC: UIViewController {
     }
     
     @objc func userDataDidChanged(_ notif: Notification) {
-        if AuthService.instance.isLogin {
-            loginBtn.setTitle(UserDataService.instance.name, for: .normal)
-            userImg.image = UIImage(named: UserDataService.instance.avatarName)
-            userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
-        } else {
-            loginBtn.setTitle("Login", for: .normal)
-            userImg.image = UIImage(named: "menuProfileIcon")
-            userImg.backgroundColor = UIColor.clear
-        }
+        setupUserInfo()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setupUserInfo()
     }
     
     @IBAction func loginBtnPressed(_ sender: Any) {
@@ -46,5 +42,17 @@ class ChannelVC: UIViewController {
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
+    }
+    
+    func setupUserInfo() {
+        if AuthService.instance.isLogin {
+            loginBtn.setTitle(UserDataService.instance.name, for: .normal)
+            userImg.image = UIImage(named: UserDataService.instance.avatarName)
+            userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+        } else {
+            loginBtn.setTitle("Login", for: .normal)
+            userImg.image = UIImage(named: "menuProfileIcon")
+            userImg.backgroundColor = UIColor.clear
+        }
     }
 }
