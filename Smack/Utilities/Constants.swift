@@ -54,5 +54,7 @@ struct Constants {
     //Notification
     struct Notif {
         static let userDataDidChange = Notification.Name("notifUserDataDidChange")
+        static let channelsLoaded = Notification.Name("channelsLoaded")
+        static let channelSelected = Notification.Name("channelSelected")
     }
 }

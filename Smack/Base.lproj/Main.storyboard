@@ -317,6 +317,7 @@
                         <viewLayoutGuide key="safeArea" id="fmo-rs-13l"/>
                     </view>
                     <connections>
+                        <outlet property="channelNameLabel" destination="14W-xo-I4e" id="Tgt-Zq-H8K"/>
                         <outlet property="menuBtn" destination="BbC-rZ-ipJ" id="yAY-uz-lgR"/>
                     </connections>
                 </viewController>

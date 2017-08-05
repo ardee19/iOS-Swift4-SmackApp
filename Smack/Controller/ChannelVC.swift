@@ -23,6 +23,7 @@ class ChannelVC: UIViewController {
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChanged(_:)), name: Constants.Notif.userDataDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(channelsLoaded(_:)), name: Constants.Notif.channelsLoaded, object: nil)
         
         SocketService.instance.getChannel { (success) in
             if success {
@@ -33,6 +34,10 @@ class ChannelVC: UIViewController {
     
     @objc func userDataDidChanged(_ notif: Notification) {
         setupUserInfo()
+    }
+    
+    @objc func channelsLoaded(_ notif: Notification) {
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,13 +68,16 @@ class ChannelVC: UIViewController {
             loginBtn.setTitle("Login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = UIColor.clear
+            tableView.reloadData()
         }
     }
     
     @IBAction func addChannelPressed(_ sender: Any) {
-        let addChannel = AddChannelVC()
-        addChannel.modalPresentationStyle = .custom
-        present(addChannel, animated: true, completion: nil)
+        if AuthService.instance.isLogin {
+            let addChannel = AddChannelVC()
+            addChannel.modalPresentationStyle = .custom
+            present(addChannel, animated: true, completion: nil)
+        }
     }
 }
 
@@ -95,4 +103,11 @@ extension ChannelVC: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: Constants.Notif.channelSelected, object: nil)
+        
+        self.revealViewController().revealToggle(animated: true)
+    }
 }
