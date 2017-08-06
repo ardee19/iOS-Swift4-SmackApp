@@ -320,6 +320,7 @@
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
                                 <state key="normal" image="send"/>
                                 <connections>
+                                    <action selector="messageBoxEditing:" destination="ML7-9x-Rat" eventType="editingChanged" id="oYC-3L-pOF"/>
                                     <action selector="sendMessagePressed:" destination="ML7-9x-Rat" eventType="touchUpInside" id="LtR-Xj-pYM"/>
                                 </connections>
                             </button>
@@ -404,6 +405,7 @@
                         <outlet property="channelNameLabel" destination="14W-xo-I4e" id="Tgt-Zq-H8K"/>
                         <outlet property="menuBtn" destination="BbC-rZ-ipJ" id="yAY-uz-lgR"/>
                         <outlet property="messageTxtBox" destination="BCM-3D-4pk" id="hd2-6e-ndu"/>
+                        <outlet property="sendButton" destination="r7A-gK-P0g" id="yhe-YK-avD"/>
                         <outlet property="tableView" destination="dfX-MQ-adu" id="kMZ-6b-dOv"/>
                     </connections>
                 </viewController>
