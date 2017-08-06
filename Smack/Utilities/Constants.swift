@@ -34,8 +34,8 @@ struct Constants {
         static let login = "\(base)account/login"
         static let addUser = "\(base)user/add"
         static let findUserByEmail = "\(base)user/byEmail/"
-        static let getChannels = "\(base)channel"
-        static let getMessages = "\(base)message/byChannel"
+        static let getChannels = "\(base)channel/"
+        static let getMessages = "\(base)message/byChannel/"
     }
     
     //Header
