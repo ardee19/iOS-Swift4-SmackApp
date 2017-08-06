@@ -35,6 +35,7 @@ struct Constants {
         static let addUser = "\(base)user/add"
         static let findUserByEmail = "\(base)user/byEmail/"
         static let getChannels = "\(base)channel"
+        static let getMessages = "\(base)message/byChannel"
     }
     
     //Header
