@@ -315,12 +315,14 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="messageBoxEditing:" destination="ML7-9x-Rat" eventType="editingChanged" id="WrT-rl-gnF"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7A-gK-P0g">
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
                                 <state key="normal" image="send"/>
                                 <connections>
-                                    <action selector="messageBoxEditing:" destination="ML7-9x-Rat" eventType="editingChanged" id="oYC-3L-pOF"/>
                                     <action selector="sendMessagePressed:" destination="ML7-9x-Rat" eventType="touchUpInside" id="LtR-Xj-pYM"/>
                                 </connections>
                             </button>
@@ -383,6 +385,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dz4-sb-Ywn">
+                                <rect key="frame" x="8" y="621" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -393,9 +401,11 @@
                             <constraint firstItem="uew-cE-pFM" firstAttribute="trailing" secondItem="fmo-rs-13l" secondAttribute="trailing" id="9vj-JI-L9v"/>
                             <constraint firstItem="uew-cE-pFM" firstAttribute="top" secondItem="dKU-kY-Zac" secondAttribute="top" id="Qc2-Gg-3z9"/>
                             <constraint firstItem="fmo-rs-13l" firstAttribute="trailing" secondItem="BCM-3D-4pk" secondAttribute="trailing" id="UYU-XH-27m"/>
+                            <constraint firstItem="BCM-3D-4pk" firstAttribute="top" secondItem="dz4-sb-Ywn" secondAttribute="bottom" constant="6" id="Yk0-4s-vq0"/>
                             <constraint firstItem="BCM-3D-4pk" firstAttribute="top" secondItem="dfX-MQ-adu" secondAttribute="bottom" constant="30" id="glK-hQ-aXc"/>
                             <constraint firstItem="dfX-MQ-adu" firstAttribute="top" secondItem="uew-cE-pFM" secondAttribute="bottom" id="jrT-pp-TqN"/>
                             <constraint firstItem="BCM-3D-4pk" firstAttribute="bottom" secondItem="fmo-rs-13l" secondAttribute="bottom" id="m0G-T4-7Fj"/>
+                            <constraint firstItem="dz4-sb-Ywn" firstAttribute="leading" secondItem="fmo-rs-13l" secondAttribute="leading" constant="8" id="mUg-cY-KSG"/>
                             <constraint firstItem="fmo-rs-13l" firstAttribute="trailing" secondItem="dfX-MQ-adu" secondAttribute="trailing" id="xYQ-8Y-PfW"/>
                             <constraint firstItem="fmo-rs-13l" firstAttribute="trailing" secondItem="r7A-gK-P0g" secondAttribute="trailing" constant="8" id="yJ7-1Q-UZU"/>
                         </constraints>
@@ -407,6 +417,7 @@
                         <outlet property="messageTxtBox" destination="BCM-3D-4pk" id="hd2-6e-ndu"/>
                         <outlet property="sendButton" destination="r7A-gK-P0g" id="yhe-YK-avD"/>
                         <outlet property="tableView" destination="dfX-MQ-adu" id="kMZ-6b-dOv"/>
+                        <outlet property="typingUsersLabel" destination="dz4-sb-Ywn" id="phI-R3-lrO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntM-EW-8ws" userLabel="First Responder" sceneMemberID="firstResponder"/>
