@@ -41,14 +41,14 @@ class ChatVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChanged(_:)), name: Constants.Notif.userDataDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelSelected(_:)), name: Constants.Notif.channelSelected, object: nil)
         
-        SocketService.instance.getChatMessage { (success) in
-            if success {
+        SocketService.instance.getChatMessage { (newMessage) in
+            if newMessage.channelId == MessageService.instance.selectedChannel?.id && AuthService.instance.isLogin {
+                MessageService.instance.messages.append(newMessage)
                 self.tableView.reloadData()
+                
                 if MessageService.instance.messages.count > 0 {
-                    //TODO: Make endIndex global to file and scrollToEnd at start / make this to a function
-                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    let endIndex = IndexPath(item: MessageService.instance.messages.count - 1, section: 0)
                     self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
-                    
                 }
             }
         }
